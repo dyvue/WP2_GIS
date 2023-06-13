@@ -1,6 +1,6 @@
-# WP2 GIS
+# WP2 Mangan
 
-UBSI WP2 final project: Geographic Information System
+UBSI WP2 final project: Mangan (Cashier administration for mini restaurant)
 
 ## Server Requirements
 
@@ -14,3 +14,23 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - json (enabled by default - don't turn it off)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
 - [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+
+## Development
+
+Configure database connection with .env file, migrate using command
+
+```
+php spark migrate
+```
+
+Seeds default account (because we do not use registration form, look UsersSeeder file for get account information)
+
+```
+php spark db:seed UsersSeeder
+```
+
+Running on your localhost server
+
+```
+php spark serve
+```
