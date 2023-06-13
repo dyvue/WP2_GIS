@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="/vendor/css/theme-default.css" class="template-customizer-theme-css" />
   <link rel="stylesheet" href="/css/demo.css" />
   <link rel="stylesheet" href="/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+  <?= $this->renderSection('css') ?>
   <script src="/vendor/js/helpers.js"></script>
   <script src="/js/config.js"></script>
 </head>
@@ -72,10 +73,9 @@
   <script src="/vendor/libs/jquery/jquery.js"></script>
   <script src="/vendor/libs/popper/popper.js"></script>
   <script src="/vendor/js/bootstrap.js"></script>
-  <script src="/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
   <script src="/vendor/js/menu.js"></script>
   <script src="/js/main.js"></script>
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <?= $this->renderSection('scripts') ?>
 </body>
 
 </html>

@@ -25,8 +25,15 @@ class AuthFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session()->get('SES_AUTH_USER_ID'))
-        {
+        if (!session()->get('SES_AUTH_USER_ID')) {
+            return redirect()->to('/login');
+        }
+
+        $profile = new \App\Models\User();
+        $profile = $profile->find(session()->get('SES_AUTH_USER_ID'));
+        if (!$profile) {
+            $session = session();
+            $session->remove('SES_AUTH_USER_ID');
             return redirect()->to('/login');
         }
     }

@@ -108,3 +108,22 @@
 .w-brand {
   width: 18%;
 }
+.w-10 {
+  width: 40px;
+}
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+.pagination li {
+  padding-left: 4px;
+}
+.pagination li a {
+  padding: 8px 12px;
+  border-radius: 0.375rem;
+  border: 1px solid #d9dee3;
+}
+.bg-best-seller {
+  background-color: #DDE6ED;
+}

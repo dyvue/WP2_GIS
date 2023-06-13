@@ -30,15 +30,28 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-$routes->get('/login', 'AuthController::index', ['filter' => 'guestfilter']);
-$routes->post('/login', 'AuthController::login', ['filter' => 'guestfilter']);
-$routes->get('/logout', 'AuthController::logout', ['filter' => 'authfilter']);
-
+$routes->get('login', 'AuthController::index', ['filter' => 'guestfilter']);
+$routes->post('login', 'AuthController::login', ['filter' => 'guestfilter']);
+$routes->get('logout', 'AuthController::logout', ['filter' => 'authfilter']);
 
 $routes->get('/', 'DashboardController::index', ['filter' => 'authfilter']);
-// $routes->get('/dashboard', 'DashboardController::index', ['filter' => 'authfilter']);
-$routes->get('/master/menu-categories', 'MenuCategoryController::index', ['filter' => 'authfilter']);
-$routes->get('/master/menus', 'MenuController::index', ['filter' => 'authfilter']);
+
+// menu categories
+$routes->get('master/menu-categories', 'MenuCategoryController::index', ['filter' => 'authfilter']);
+$routes->post('master/menu-categories', 'MenuCategoryController::store', ['filter' => 'authfilter']);
+$routes->post('master/menu-categories/update/(:segment)', 'MenuCategoryController::update/$1', ['filter' => 'authfilter']);
+$routes->get('master/menu-categories/delete/(:segment)', 'MenuCategoryController::delete/$1', ['filter' => 'authfilter']);
+
+// menu
+$routes->get('master/menus', 'MenuController::index', ['filter' => 'authfilter']);
+$routes->get('master/menus/create', 'MenuController::create', ['filter' => 'authfilter']);
+$routes->post('master/menus', 'MenuController::store', ['filter' => 'authfilter']);
+$routes->get('master/menus/edit/(:segment)', 'MenuController::edit/$1', ['filter' => 'authfilter']);
+$routes->post('master/menus/update/(:segment)', 'MenuController::update/$1', ['filter' => 'authfilter']);
+$routes->get('master/menus/set-status/(:segment)', 'MenuController::setStatus/$1', ['filter' => 'authfilter']);
+$routes->get('master/menus/set-best-seller/(:segment)', 'MenuController::setBestSeller/$1', ['filter' => 'authfilter']);
+$routes->get('master/menus/delete/(:segment)', 'MenuController::delete/$1', ['filter' => 'authfilter']);
+
 
 /*
  * --------------------------------------------------------------------
