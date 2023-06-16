@@ -16,7 +16,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th width="50" class="text-center">#</th>
+                                    <th width="50">ID</th>
                                     <th>Kategori Menu</th>
                                     <th width="40" class="text-center">Actions</th>
                                 </tr>
@@ -25,7 +25,7 @@
                                 <?php $counter = (isset($_GET['page']) && $_GET['page'] > 1) ? (5 * $_GET['page'] - 5) : 1; ?>
                                 <?php foreach ($menuCategories as $index => $item) : ?>
                                     <tr>
-                                        <td class="text-center"><?= $counter ?></td>
+                                        <td>#<?= $item['id'] ?></td>
                                         <td><strong><?= $item['name'] ?></strong></td>
                                         <td class="text-center">
                                             <div class="d-flex gap-2">

@@ -27,12 +27,8 @@ class ProfileController extends BaseController
 
         $photo = $this->request->getFile('form-photo');
         if ($photo->isValid()) {
-            if ($photo->isValid() && $photo->getSize() < 800 * 1024) {
-                $photoName = $photo->getRandomName();
-                $photo->move('./img/avatars', $photoName);
-            } else {
-                return redirect()->to('profile')->with('error', 'Foto profile maksimum 2MB');
-            }
+            $photoName = $photo->getRandomName();
+            $photo->move('./img/avatars', $photoName);
         }
 
         if (isset($photoName)) {

@@ -116,3 +116,19 @@ let menu, animate;
   // Auto update menu collapsed/expanded based on the themeConfig
   window.Helpers.setCollapsed(true, false);
 })();
+
+
+function formatCurrency(event) {
+  let input = event.target.value;
+  let value = input.replace(/\D/g, '');
+  let formattedValue = 'Rp' + formatNumber(value);
+  event.target.value = formattedValue;
+}
+
+function formatNumber(value) {
+  let num = Number(value);
+  if (isNaN(num)) {
+    return '';
+  }
+  return num.toLocaleString('id-ID');
+}

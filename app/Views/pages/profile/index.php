@@ -11,19 +11,14 @@
 			<div class="card mb-4">
 				<form action="<?= site_url('/profile') ?>" method="POST" enctype="multipart/form-data">
 					<h5 class="card-header">Profile Details</h5>
-					<div class="card-body">
-						<div class="d-flex align-items-start align-items-sm-center gap-4">
-							<img src="/img/avatars/<?= $profile['photo'] ?>" alt="user-avatar" class="d-block rounded object-fit-cover" height="100" width="100" id="form-photo-view" />
-							<div class="button-wrapper">
-								<label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-									<span class="d-none d-sm-block">Upload foto</span>
-									<i class="bx bx-upload d-block d-sm-none"></i>
-									<input type="file" id="upload" class="account-file-input" hidden accept="image/png, image/jpeg" name="form-photo" />
-								</label>
-								<p class="text-muted mb-0">Maksimum size 2MB</p>
-							</div>
-						</div>
-					</div>
+          <div class="card-body">
+            <div class="d-flex align-items-start align-items-sm-center gap-4">
+							<img src="/img/avatars/<?= $profile['photo'] ? $profile['photo'] : 'default.jpg' ?>" alt="user-avatar" class="d-block rounded object-fit-cover" height="100" width="100" id="form-photo-view" />
+              <div class="button-wrapper">
+                <input type="file" id="upload" class="form-control" accept="image/png, image/jpeg" name="form-photo" />
+              </div>
+            </div>
+          </div>
 					<hr class="my-0" />
 					<div class="card-body">
 						<div class="row">

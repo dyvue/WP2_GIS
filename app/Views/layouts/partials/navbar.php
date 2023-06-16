@@ -19,7 +19,7 @@
           <div class="d-flex justify-content-center align-items-center">
             <div class="flex-shrink-0 me-3">
               <div class="avatar">
-                <img src="/img/avatars/1.jpg" alt class="w-px-40 h-auto rounded-circle" />
+                <img src="/img/avatars/<?= $profile['photo'] ? $profile['photo'] : 'default.jpg' ?>" alt class="w-px-40 h-auto rounded-circle" />
               </div>
             </div>
             <div class="flex-grow-1">

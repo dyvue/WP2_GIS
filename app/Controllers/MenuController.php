@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\MenuCategory;
 use App\Models\Menu;
 
 class MenuController extends BaseController
@@ -11,7 +12,7 @@ class MenuController extends BaseController
         $model = new Menu();
         $pass = [
             'model' => $model,
-            'menus' => $model->orderBy('is_best_seller', 'DESC')->orderBy('updated_at', 'DESC')->paginate(10),
+            'menus' => $model->orderBy('created_at', 'DESC')->paginate(10),
             'pager' => $model->pager,
         ];
 
@@ -20,19 +21,31 @@ class MenuController extends BaseController
 
     public function create()
     {
-        return view('pages/menu/create');
+        $modelCategory = new MenuCategory();
+        $pass = [
+            'menuCategories' => $modelCategory->orderBy('id', 'ASC')->findAll()
+        ];
+
+        return view('pages/menu/create', $pass);
     }
 
     public function store()
     {
         $model = new Menu();
         $data = [
-            'menu_category_id' => $this->request->getPost('menu_category_id'),
-            'name' => $this->request->getPost('name'),
-            'photo' => $this->request->getPost('photo'),
-            'price' => $this->request->getPost('price'),
-            'is_available' => $this->request->getPost('is_available') ? true : false,
+            'menu_category_id' => $this->request->getPost('form-menu-category-id'),
+            'name' => $this->request->getPost('form-name'),
+            'price' => (int) str_replace(['Rp', '.', ','], '', $this->request->getPost('form-price')),
         ];
+
+        $photo = $this->request->getFile('form-photo');
+        if ($photo->isValid()) {
+            $photoName = $photo->getRandomName();
+            $photo->move('./img/menus', $photoName);
+        }
+        if (isset($photoName)) {
+            $data['photo'] = $photoName;
+        }
 
         $model->insert($data);
 
@@ -42,21 +55,32 @@ class MenuController extends BaseController
     public function edit($id)
     {
         $model = new Menu();
-        $data['menu'] = $model->find($id);
+        $modelCategory = new MenuCategory();
+        $pass = [
+            'data' => $model->find($id),
+            'menuCategories' => $modelCategory->orderBy('id', 'ASC')->findAll()
+        ];
 
-        return view('pages/menu/edit', $data);
+        return view('pages/menu/edit', $pass);
     }
 
     public function update($id)
     {
         $model = new Menu();
         $data = [
-            'menu_category_id' => $this->request->getPost('menu_category_id'),
-            'name' => $this->request->getPost('name'),
-            'photo' => $this->request->getPost('photo'),
-            'price' => $this->request->getPost('price'),
-            'is_available' => $this->request->getPost('is_available') ? true : false,
+            'menu_category_id' => $this->request->getPost('form-menu-category-id'),
+            'name' => $this->request->getPost('form-name'),
+            'price' => (int) str_replace(['Rp', '.', ','], '', $this->request->getPost('form-price')),
         ];
+
+        $photo = $this->request->getFile('form-photo');
+        if ($photo->isValid()) {
+            $photoName = $photo->getRandomName();
+            $photo->move('./img/menus', $photoName);
+        }
+        if (isset($photoName)) {
+            $data['photo'] = $photoName;
+        }
 
         $model->update($id, $data);
 

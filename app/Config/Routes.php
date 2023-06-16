@@ -48,7 +48,7 @@ $routes->get('master/menu-categories/delete/(:segment)', 'MenuCategoryController
 // menu
 $routes->get('master/menus', 'MenuController::index', ['filter' => 'authfilter']);
 $routes->get('master/menus/create', 'MenuController::create', ['filter' => 'authfilter']);
-$routes->post('master/menus', 'MenuController::store', ['filter' => 'authfilter']);
+$routes->post('master/menus/create', 'MenuController::store', ['filter' => 'authfilter']);
 $routes->get('master/menus/edit/(:segment)', 'MenuController::edit/$1', ['filter' => 'authfilter']);
 $routes->post('master/menus/update/(:segment)', 'MenuController::update/$1', ['filter' => 'authfilter']);
 $routes->get('master/menus/set-status/(:segment)', 'MenuController::setStatus/$1', ['filter' => 'authfilter']);
