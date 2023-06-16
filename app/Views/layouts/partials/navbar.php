@@ -1,6 +1,8 @@
 <?php 
   $profile = new App\Models\User();
   $profile = $profile->find(session()->get('SES_AUTH_USER_ID'));
+
+  $firstName = explode(" ", $profile['name'])[0];
 ?>
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
   <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -21,13 +23,13 @@
               </div>
             </div>
             <div class="flex-grow-1">
-              <span class="fw-semibold d-block"><?= $profile['name'] ?></span>
+              <span class="fw-semibold d-block"><?= $firstName ?></span>
             </div>
           </div>
         </a>
         <ul class="dropdown-menu dropdown-menu-end">
           <li>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item" href="<?= site_url('profile'); ?>">
               <i class="bx bx-user me-2"></i>
               <span class="align-middle">Profil</span>
             </a>
@@ -36,7 +38,7 @@
             <div class="dropdown-divider"></div>
           </li>
           <li>
-            <a class="dropdown-item" href="/logout">
+            <a class="dropdown-item" href="<?= site_url('logout'); ?>">
               <i class="bx bx-power-off me-2"></i>
               <span class="align-middle">Log Out</span>
             </a>

@@ -35,6 +35,9 @@ $routes->post('login', 'AuthController::login', ['filter' => 'guestfilter']);
 $routes->get('logout', 'AuthController::logout', ['filter' => 'authfilter']);
 
 $routes->get('/', 'DashboardController::index', ['filter' => 'authfilter']);
+$routes->get('/profile', 'ProfileController::index', ['filter' => 'authfilter']);
+$routes->post('/profile', 'ProfileController::save', ['filter' => 'authfilter']);
+$routes->post('/profile/change-password', 'ProfileController::changePassword', ['filter' => 'authfilter']);
 
 // menu categories
 $routes->get('master/menu-categories', 'MenuCategoryController::index', ['filter' => 'authfilter']);

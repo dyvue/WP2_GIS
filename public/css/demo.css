@@ -127,3 +127,6 @@
 .bg-best-seller {
   background-color: #DDE6ED;
 }
+.object-fit-cover {
+  object-fit: cover;
+}
