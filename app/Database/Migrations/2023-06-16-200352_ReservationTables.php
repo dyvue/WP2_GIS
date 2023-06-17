@@ -16,11 +16,11 @@ class Tables extends Migration
             'deleted_at' => ['type' => 'TIMESTAMP', 'null' => true],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('tables', true);
+        $this->forge->createTable('reservation_tables', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('tables');
+        $this->forge->dropTable('reservation_tables');
     }
 }

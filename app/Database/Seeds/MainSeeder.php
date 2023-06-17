@@ -10,6 +10,8 @@ class MainSeeder extends Seeder
     {
         $this->call('UserSeeder');
         $this->call('MenuCategorySeeder');
+        $this->call('PaymentMethodSeeder');
+        $this->call('ReservationTableSeeder');
         $this->call('MenuSeeder');
     }
 }

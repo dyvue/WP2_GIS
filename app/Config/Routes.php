@@ -44,7 +44,6 @@ $routes->get('master/menu-categories', 'MenuCategoryController::index', ['filter
 $routes->post('master/menu-categories', 'MenuCategoryController::store', ['filter' => 'authfilter']);
 $routes->post('master/menu-categories/update/(:segment)', 'MenuCategoryController::update/$1', ['filter' => 'authfilter']);
 $routes->get('master/menu-categories/delete/(:segment)', 'MenuCategoryController::delete/$1', ['filter' => 'authfilter']);
-
 // menu
 $routes->get('master/menus', 'MenuController::index', ['filter' => 'authfilter']);
 $routes->get('master/menus/create', 'MenuController::create', ['filter' => 'authfilter']);
@@ -54,13 +53,16 @@ $routes->post('master/menus/update/(:segment)', 'MenuController::update/$1', ['f
 $routes->get('master/menus/set-status/(:segment)', 'MenuController::setStatus/$1', ['filter' => 'authfilter']);
 $routes->get('master/menus/set-best-seller/(:segment)', 'MenuController::setBestSeller/$1', ['filter' => 'authfilter']);
 $routes->get('master/menus/delete/(:segment)', 'MenuController::delete/$1', ['filter' => 'authfilter']);
-
-
-// tables
-$routes->get('master/tables', 'TableController::index', ['filter' => 'authfilter']);
-$routes->post('master/tables', 'TableController::store', ['filter' => 'authfilter']);
-$routes->post('master/tables/update/(:segment)', 'TableController::update/$1', ['filter' => 'authfilter']);
-$routes->get('master/tables/delete/(:segment)', 'TableController::delete/$1', ['filter' => 'authfilter']);
+// reservation tables
+$routes->get('master/reservation-tables', 'ReservationTableController::index', ['filter' => 'authfilter']);
+$routes->post('master/reservation-tables', 'ReservationTableController::store', ['filter' => 'authfilter']);
+$routes->post('master/reservation-tables/update/(:segment)', 'ReservationTableController::update/$1', ['filter' => 'authfilter']);
+$routes->get('master/reservation-tables/delete/(:segment)', 'ReservationTableController::delete/$1', ['filter' => 'authfilter']);
+// payment methods
+$routes->get('master/payment-methods', 'PaymentMethodController::index', ['filter' => 'authfilter']);
+$routes->post('master/payment-methods', 'PaymentMethodController::store', ['filter' => 'authfilter']);
+$routes->post('master/payment-methods/update/(:segment)', 'PaymentMethodController::update/$1', ['filter' => 'authfilter']);
+$routes->get('master/payment-methods/delete/(:segment)', 'PaymentMethodController::delete/$1', ['filter' => 'authfilter']);
 
 
 /*

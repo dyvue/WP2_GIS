@@ -44,14 +44,19 @@ if (!function_exists('is_active_menu')) {
         </a>
 
         <ul class="menu-sub">
-            <li class="menu-item <?= is_active_menu('master/tables'); ?>">
-                <a href="<?= site_url('master/tables'); ?>" class="menu-link">
-                    <div data-i18n="Without menu">Daftar Meja</div>
-                </a>
-            </li>
             <li class="menu-item <?= is_active_menu('master/menus'); ?>">
                 <a href="<?= site_url('master/menus'); ?>" class="menu-link">
                     <div data-i18n="Without menu">Daftar Menu</div>
+                </a>
+            </li>
+            <li class="menu-item <?= is_active_menu('master/reservation-tables'); ?>">
+                <a href="<?= site_url('master/reservation-tables'); ?>" class="menu-link">
+                    <div data-i18n="Without menu">Daftar Meja</div>
+                </a>
+            </li>
+            <li class="menu-item <?= is_active_menu('master/payment-methods'); ?>">
+                <a href="<?= site_url('master/payment-methods'); ?>" class="menu-link">
+                    <div data-i18n="Without menu">Metode Pembayaran</div>
                 </a>
             </li>
             <li class="menu-item <?= is_active_menu('master/menu-categories'); ?>">

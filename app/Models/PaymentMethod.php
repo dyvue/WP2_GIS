@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Table extends Model
+class PaymentMethod extends Model
 {
-    protected $table = 'tables';
+    protected $table = 'payment_methods';
     protected $beforeInsert = ['generateID'];
     protected $allowedFields = ['name', 'created_at', 'updated_at'];
     protected $useTimestamps = true;
@@ -17,10 +17,10 @@ class Table extends Model
     {
         $lastID = $this->db->table($this->table)->selectMax('id')->get()->getRow()->id;
         if (!$lastID) {
-            $newID = 'TBLE0001';
+            $newID = 'PYMT0001';
         } else {
             $number = intval(substr($lastID, 4)) + 1;
-            $newID = 'TBLE' . str_pad($number, 4, '0', STR_PAD_LEFT);
+            $newID = 'PYMT' . str_pad($number, 4, '0', STR_PAD_LEFT);
         }
         $data['data']['id'] = $newID;
 
