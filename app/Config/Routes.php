@@ -56,6 +56,13 @@ $routes->get('master/menus/set-best-seller/(:segment)', 'MenuController::setBest
 $routes->get('master/menus/delete/(:segment)', 'MenuController::delete/$1', ['filter' => 'authfilter']);
 
 
+// tables
+$routes->get('master/tables', 'TableController::index', ['filter' => 'authfilter']);
+$routes->post('master/tables', 'TableController::store', ['filter' => 'authfilter']);
+$routes->post('master/tables/update/(:segment)', 'TableController::update/$1', ['filter' => 'authfilter']);
+$routes->get('master/tables/delete/(:segment)', 'TableController::delete/$1', ['filter' => 'authfilter']);
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

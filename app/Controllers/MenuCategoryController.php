@@ -10,7 +10,7 @@ class MenuCategoryController extends BaseController
     {
         $model = new MenuCategory();
         $pass = [
-            'menuCategories' => $model->orderBy('updated_at', 'DESC')->paginate(5),
+            'menuCategories' => $model->orderBy('created_at', 'DESC')->paginate(5),
             'pager' => $model->pager,
         ];
 
