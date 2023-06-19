@@ -108,6 +108,9 @@
 .w-brand {
   width: 18%;
 }
+.w-brand-customer {
+  width: 6%;
+}
 .w-10 {
   width: 40px;
 }
@@ -120,13 +123,24 @@
   padding-left: 4px;
 }
 .pagination li a {
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: 0.375rem;
   border: 1px solid #d9dee3;
+  font-weight: bold;
 }
 /* .bg-best-seller {
   background-color: #fff2d6;
 } */
 .object-fit-cover {
   object-fit: cover;
+}
+.h-card-menu-image {
+  height: 180px;
+  object-fit: cover;
+}
+.btn-none {
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
 }

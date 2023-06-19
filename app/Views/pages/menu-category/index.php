@@ -22,19 +22,17 @@
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
-                                <?php $counter = (isset($_GET['page']) && $_GET['page'] > 1) ? (5 * $_GET['page'] - 5) : 1; ?>
                                 <?php foreach ($menuCategories as $index => $item) : ?>
                                     <tr>
                                         <td>#<?= $item['id'] ?></td>
                                         <td><strong><?= $item['name'] ?></strong></td>
                                         <td class="text-center">
                                             <div class="d-flex gap-2">
-                                                <a class="text-black modal-basic-edit" href="javascript:void(0)" data-id="<?= $item['id'] ?>" data-name="<?= $item['name'] ?>" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title="Edit"><i class="bx bx-xs bx-edit-alt"></i></a>
+                                                <a class="text-black modal-basic-edit" href="javascript:void(0)" data-id="<?= $item['id'] ?>" data-name="<?= $item['name'] ?>" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title="Edit"><i class="bx bx-xs bx-edit"></i></a>
                                                 <a class="text-black" href="<?= site_url('master/menu-categories/delete/' . $item['id']) ?>" onclick="return confirm('Anda yakin ingin menghapus kategori <?= $item['name'] ?>')" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title="Hapus"><i class="bx bx-xs bx-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>
-                                <?php $counter++; ?>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
@@ -50,7 +48,7 @@
 <?php include 'partials/modal-form.php'; ?>
 <?php
 if (session()->getFlashdata('success')) :
-    echo showToast('bg-success', 'Informasi', session()->getFlashdata('success'));
+    echo showToast('bg-default', 'Informasi', session()->getFlashdata('success'));
 endif;
 ?>
 <?= $this->endSection() ?>

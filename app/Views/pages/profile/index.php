@@ -69,7 +69,7 @@
 </div>
 <?php
 if (session()->getFlashdata('success')) :
-	echo showToast('bg-success', 'Informasi', session()->getFlashdata('success'));
+	echo showToast('bg-default', 'Informasi', session()->getFlashdata('success'));
 elseif (session()->getFlashdata('error')) :
 	echo showToast('bg-danger', 'Informasi', session()->getFlashdata('error'));
 endif;

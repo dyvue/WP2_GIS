@@ -29,7 +29,7 @@
                                         <td><strong><?= $item['name'] ?></strong></td>
                                         <td class="text-center">
                                             <div class="d-flex gap-2">
-                                                <a class="text-black modal-basic-edit" href="javascript:void(0)" data-id="<?= $item['id'] ?>" data-name="<?= $item['name'] ?>" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title="Edit"><i class="bx bx-xs bx-edit-alt"></i></a>
+                                                <a class="text-black modal-basic-edit" href="javascript:void(0)" data-id="<?= $item['id'] ?>" data-name="<?= $item['name'] ?>" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title="Edit"><i class="bx bx-xs bx-edit"></i></a>
                                                 <a class="text-black" href="<?= site_url('master/payment-methods/delete/' . $item['id']) ?>" onclick="return confirm('Anda yakin ingin menghapus metode pembayaran <?= $item['name'] ?>?')" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title="Hapus"><i class="bx bx-xs bx-trash"></i></a>
                                             </div>
                                         </td>
@@ -50,7 +50,7 @@
 <?php include 'partials/modal-form.php'; ?>
 <?php
 if (session()->getFlashdata('success')) :
-    echo showToast('bg-success', 'Informasi', session()->getFlashdata('success'));
+    echo showToast('bg-default', 'Informasi', session()->getFlashdata('success'));
 endif;
 ?>
 <?= $this->endSection() ?>

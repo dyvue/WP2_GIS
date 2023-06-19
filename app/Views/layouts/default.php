@@ -17,6 +17,10 @@
   <link rel="stylesheet" href="/css/demo.css" />
   <link rel="stylesheet" href="/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <?= $this->renderSection('css') ?>
+  
+  <link rel="stylesheet" href="/vendor/libs/datatables-bs5/datatables.bootstrap5.css">
+  <link rel="stylesheet" href="/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+
   <script src="/vendor/js/helpers.js"></script>
   <script src="/js/config.js"></script>
 </head>
@@ -54,6 +58,10 @@
   <script src="/vendor/libs/jquery/jquery.js"></script>
   <script src="/vendor/libs/popper/popper.js"></script>
   <script src="/vendor/js/bootstrap.js"></script>
+
+
+  <script src="/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+
   <script src="/vendor/js/menu.js"></script>
   <script src="/js/main.js"></script>
   <?= $this->renderSection('scripts') ?>

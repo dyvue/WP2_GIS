@@ -11,6 +11,7 @@ function showToast($selectedType, $headerText, $bodyText)
                 <div class="toast-body">' . $bodyText . '</div>
             </div>
             <script src="/vendor/js/bootstrap.js"></script>
+            <script src="/js/main.js"></script>
             <script>
                 const toastPlacementExample = document.querySelector(".toast-placement-ex");
                 selectedType = "' . $selectedType . '";

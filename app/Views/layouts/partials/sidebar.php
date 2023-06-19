@@ -20,7 +20,7 @@ if (!function_exists('is_active_menu')) {
 ?>
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
   <div class="app-brand demo">
-    <a href="index.html" class="app-brand-link">
+    <a href="<?= site_url('/') ?>" class="app-brand-link">
       <img src="/logo.png" alt="Mangan" class="w-brand">
       <span class="app-brand-text demo menu-text fw-bolder ms-2">Mangan.</span>
     </a>
@@ -66,17 +66,11 @@ if (!function_exists('is_active_menu')) {
             </li>
         </ul>
     </li>
-    <li class="menu-header small text-uppercase"><span class="menu-header-text">Transaksi</span></li>
-    <li class="menu-item <?= is_active_menu('order'); ?>">
-      <a href="<?= site_url('order'); ?>" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-cart"></i>
-        <div data-i18n="Boxicons">Order</div>
-      </a>
-    </li>
-    <li class="menu-item <?= is_active_menu('payments'); ?>">
-      <a href="<?= site_url('payments'); ?>" class="menu-link">
+    <li class="menu-header small text-uppercase"><span class="menu-header-text">Order</span></li>
+    <li class="menu-item <?= is_active_menu('transaction'); ?>">
+      <a href="<?= site_url('transaction'); ?>" class="menu-link">
         <i class="menu-icon tf-icons bx bx-wallet"></i>
-        <div data-i18n="Boxicons">Pembayaran</div>
+        <div data-i18n="Boxicons">Transaksi</div>
       </a>
     </li>
     <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan</span></li>

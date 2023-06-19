@@ -23,6 +23,8 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
         'authfilter' => \App\Filters\AuthFilter::class,
         'guestfilter' => \App\Filters\GuestFilter::class,
+        'authcustomerfilter' => \App\Filters\AuthCustomerFilter::class,
+        'guestcustomerfilter' => \App\Filters\GuestCustomerFilter::class,
     ];
 
     /**

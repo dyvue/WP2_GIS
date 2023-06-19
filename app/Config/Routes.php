@@ -64,6 +64,15 @@ $routes->post('master/payment-methods', 'PaymentMethodController::store', ['filt
 $routes->post('master/payment-methods/update/(:segment)', 'PaymentMethodController::update/$1', ['filter' => 'authfilter']);
 $routes->get('master/payment-methods/delete/(:segment)', 'PaymentMethodController::delete/$1', ['filter' => 'authfilter']);
 
+// customer routes
+// order
+$routes->get('order/login', 'AuthCustomerController::index', ['filter' => 'guestcustomerfilter']);
+$routes->post('order/login', 'AuthCustomerController::login', ['filter' => 'guestcustomerfilter']);
+$routes->get('order/logout', 'AuthCustomerController::logout', ['filter' => 'authcustomerfilter']);
+
+$routes->get('order', 'OrderController::index', ['filter' => 'authcustomerfilter']);
+$routes->post('order', 'OrderController::store', ['filter' => 'authcustomerfilter']);
+
 
 /*
  * --------------------------------------------------------------------
