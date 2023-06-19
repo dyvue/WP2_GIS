@@ -134,9 +134,23 @@
 .object-fit-cover {
   object-fit: cover;
 }
+.card-menu {
+  position: relative;
+}
+.card-menu-disabled {
+  background-color: #DEDEDE;
+}
 .h-card-menu-image {
-  height: 180px;
+  height: 200px;
   object-fit: cover;
+}
+.card-menu .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .btn-none {
   box-shadow: none;
@@ -146,4 +160,17 @@
 }
 .card-header.absolute {
   position: absolute;
+}
+.card-menu-status {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.card-menu-best-seller {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.h-cart-image {
+  height: 100px !important;
 }

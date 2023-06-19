@@ -16,12 +16,10 @@ class OrderController extends BaseController
         $menuCategorySelected = $this->request->getGet('category-id');
 
         $menus = $modelMenu;
-
         if ($menuCategorySelected) {
             $menus = $menus->where('menu_category_id', $menuCategorySelected);
         }
-
-        $menus = $menus->orderBy('is_best_seller', 'DESC')->orderBy('is_available', 'ASC')->orderBy('created_at', 'ASC')->paginate(9);
+        $menus = $menus->orderBy('is_best_seller', 'DESC')->orderBy('is_available', 'DESC')->orderBy('created_at', 'ASC')->paginate(9);
 
         $pass = [
             'menuCategories'=> $modelMenuCategoy->orderBy('id', 'ASC')->findAll(),

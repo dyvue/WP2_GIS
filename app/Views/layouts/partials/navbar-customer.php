@@ -1,6 +1,14 @@
 <?php
+$reservationTableId = session()->get('SES_AUTH_CUSTOMER_TABLE');
 $reservationTable = new App\Models\ReservationTable();
-$reservationTable = $reservationTable->find(session()->get('SES_AUTH_CUSTOMER_TABLE'));
+$reservationTable = $reservationTable->find($reservationTableId);
+
+$reservationTableCart = new App\Models\ReservationTableCart();
+$reservationTableCart = $reservationTableCart->where('reservation_table_id', $reservationTableId)->findAll();
+$totalCart = 0;
+foreach ($reservationTableCart as $cartItem) {
+  $totalCart += $cartItem['total'];
+}
 ?>
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
   <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
@@ -14,7 +22,7 @@ $reservationTable = $reservationTable->find(session()->get('SES_AUTH_CUSTOMER_TA
     <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
       <a class="nav-link d-flex align-items-center" href="<?= site_url('order/cart') ?>">
         <i class="bx bx-cart bx-sm"></i>
-        <span class="badge bg-danger rounded-pill badge-notifications">5</span>
+        <span class="badge bg-danger rounded-pill badge-notifications"><?= $totalCart ?></span>
       </a>
     </li>
       <li class="nav-item navbar-dropdown dropdown-user dropdown">

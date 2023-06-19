@@ -18,7 +18,20 @@
     <div class="row">
         <?php foreach ($menus as $index => $item) : ?>
             <div class="col-12 col-md-4">
-                <div class="card mb-3">
+                <div class="card mb-3 card-menu <?= $item['is_available'] == 0 ? 'card-menu-disabled' : '' ?>">
+                    <div class="overlay"></div>
+                    <div class="card-menu-status">
+                        <?php if ($item['is_available'] == 1) : ?>
+                            <span class="badge bg-success"><small>Tersedia</small></span>
+                        <?php else : ?>
+                            <span class="badge bg-secondary"><small>Tidak Tersedia</small></span>
+                        <?php endif; ?>
+                    </div>
+                    <?php if ($item['is_best_seller'] == 1) : ?>
+                    <div class="card-menu-best-seller">
+                        <span class="badge bg-warning"><i class="bx bx-xs bxs-star"></i> <b class="mt-1">BEST SELLER</b></span>
+                    </div>
+                    <?php endif; ?>
                     <img class="card-img-top h-card-menu-image" src="/img/menus/<?= $item['photo'] ? $item['photo'] : 'default.jpg' ?>" alt="<?= $item['name'] ?>">
                     <div class="card-body">
                         <small class="text-muted"><?= $modelMenu->getCategory($item['menu_category_id']); ?></small>
@@ -26,9 +39,15 @@
                         <h6 class="fw-bold h5"><?= rupiahFormat($item['price']) ?></h6>
                         <form action="<?= site_url('order') ?>" method="POST">
                         <input type="hidden" name="menu-id" value="<?= $item['id'] ?>">
+                        <?php if($item['is_available'] == 0): ?>
+                        <button type="button" class="btn-none text-secondary">
+                            <span class="bx bx-sm bxs-cart-add"></span> Keranjang
+                        </button>
+                        <?php else : ?>
                         <button type="submit" class="btn-none text-primary">
                             <span class="bx bx-sm bxs-cart-add"></span> Keranjang
                         </button>
+                        <?php endif; ?>
                         </form>
                     </div>
                 </div>
