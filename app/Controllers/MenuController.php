@@ -12,8 +12,7 @@ class MenuController extends BaseController
         $model = new Menu();
         $pass = [
             'model' => $model,
-            'menus' => $model->orderBy('created_at', 'DESC')->paginate(10),
-            'pager' => $model->pager,
+            'menus' => $model->orderBy('created_at', 'DESC')->findAll(),
         ];
 
         return view('pages/menu/index', $pass);

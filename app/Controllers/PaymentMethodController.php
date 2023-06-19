@@ -10,8 +10,7 @@ class PaymentMethodController extends BaseController
     {
         $model = new PaymentMethod();
         $pass = [
-            'paymentMethods' => $model->orderBy('created_at', 'DESC')->paginate(5),
-            'pager' => $model->pager,
+            'paymentMethods' => $model->orderBy('created_at', 'DESC')->findAll()
         ];
 
         return view("pages/payment-method/index", $pass);

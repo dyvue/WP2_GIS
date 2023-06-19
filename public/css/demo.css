@@ -144,3 +144,6 @@
   background-color: transparent;
   padding: 0;
 }
+.card-header.absolute {
+  position: absolute;
+}

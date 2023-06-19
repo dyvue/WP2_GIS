@@ -8,10 +8,10 @@
     <div class="row">
         <div class="col-12 col-md-8">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header absolute">
                     <button class="btn btn-primary" onclick="modalBasicFormCreate()"><span class="tf-icons bx bx-plus-circle"></span> Tambah Meja</button>
                 </div>
-                <div class="card-body">
+                <div class="mt-4 card-body">
                     <div class="table-responsive text-nowrap">
                         <table class="data-table table table-striped">
                             <thead>
@@ -52,25 +52,27 @@ endif;
 
 <?= $this->section("scripts") ?>
 <script>
-    const modalBasicFormCreate = () => {
-        $('#form-modal').attr('action', '/master/reservation-tables')
-        $('#form-modal-input-name').val('')
-        $('#modal-basic-form-title').text('Tambah Meja')
-        $('#modal-basic-form').modal('show')
-    }
+const modalBasicFormCreate = () => {
+    $('#form-modal').attr('action', '/master/reservation-tables')
+    $('#form-modal-input-name').val('')
+    $('#modal-basic-form-title').text('Tambah Meja')
+    $('#modal-basic-form').modal('show')
+}
 
-    $('.modal-basic-edit').click(function(e) {
-        e.preventDefault()
-        const id = $(this).data('id'),
-            name = $(this).data('name')
-        $('#form-modal').attr('action', '/master/reservation-tables/update/' + id)
-        $('#form-modal-input-name').val(name)
-        $('#modal-basic-form-title').text('Edit Meja')
-        $('#modal-basic-form').modal('show')
-    })
+$('.modal-basic-edit').click(function(e) {
+    e.preventDefault()
+    const id = $(this).data('id'),
+        name = $(this).data('name')
+    $('#form-modal').attr('action', '/master/reservation-tables/update/' + id)
+    $('#form-modal-input-name').val(name)
+    $('#modal-basic-form-title').text('Edit Meja')
+    $('#modal-basic-form').modal('show')
+})
 
-    $('.data-table').DataTable({
-        ordering: false,
-    })
+$('.data-table').DataTable({
+    ordering: false,
+    lengthChange: false,
+    pageLength: 5
+})
 </script>
 <?= $this->endSection() ?>

@@ -8,12 +8,12 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header absolute">
                     <a href="<?= site_url('master/menus/create') ?>" class="btn btn-primary"><span class="tf-icons bx bx-plus-circle"></span> Tambah Menu</a>
                 </div>
-                <div class="card-body">
+                <div class="mt-4 card-body">
                     <div class="table-responsive text-nowrap">
-                        <table class="table table-hover">
+                        <table class="data-table table table-hover">
                             <thead>
                                 <tr>
                                     <th width="50">ID</th>
@@ -56,9 +56,6 @@
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
-                        <div class="mt-4">
-                            <?= $pager->links() ?>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -74,5 +71,10 @@ endif;
 
 <?= $this->section("scripts") ?>
 <script>
+$('.data-table').DataTable({
+    ordering: false,
+    lengthChange: false,
+    pageLength: 5
+})
 </script>
 <?= $this->endSection() ?>

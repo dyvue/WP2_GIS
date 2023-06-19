@@ -10,8 +10,7 @@ class ReservationTableController extends BaseController
     {
         $model = new ReservationTable();
         $pass = [
-            'reservationTables' => $model->orderBy('created_at', 'DESC')->paginate(5),
-            'pager' => $model->pager,
+            'reservationTables' => $model->orderBy('created_at', 'DESC')->findAll()
         ];
 
         return view("pages/reservation-table/index", $pass);
