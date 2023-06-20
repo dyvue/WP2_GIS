@@ -11,19 +11,19 @@ class MenuCategorySeeder extends Seeder
         $datas = [
             [
                 'id'         => 'KTMENU0001',
-                'name'       => 'Masakan Nasi',
+                'name'       => 'MASAKAN NASI',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'id'         => 'KTMENU0002',
-                'name'       => 'Masakan Mie',
+                'name'       => 'MASAKAN MIE',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'id'         => 'KTMENU0003',
-                'name'       => 'Minuman',
+                'name'       => 'MINUMAN',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

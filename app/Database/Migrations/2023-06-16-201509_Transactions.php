@@ -9,7 +9,7 @@ class Transactions extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id'                        => ['type' => 'BINARY', 'constraint' => 16],
+            'id'                        => ['type' => 'CHAR', 'constraint' => 10],
             'reservation_table_id'      => ['type' => 'CHAR', 'constraint' => 8],
             'payment_method_id'         => ['type' => 'CHAR', 'constraint' => 8, 'null' => true],
             'tax_11'                    => ['type' => 'DECIMAL', 'constraint' => '10,2'],

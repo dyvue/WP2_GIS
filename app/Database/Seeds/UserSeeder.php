@@ -10,7 +10,7 @@ class UserSeeder extends Seeder
 	{
 		$datas = [
 			[
-				'id'         => bin2hex(random_bytes(16)),
+				'id'         => generateRandomString(10),
 				'name'       => 'Ramadhan',
 				'email'      => 'ramadhan@mangan.id',
 				'photo'      => null,

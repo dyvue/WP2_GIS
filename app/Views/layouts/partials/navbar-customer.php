@@ -22,7 +22,9 @@ foreach ($reservationTableCart as $cartItem) {
     <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
       <a class="nav-link d-flex align-items-center" href="<?= site_url('order/cart') ?>">
         <i class="bx bx-cart bx-sm"></i>
+        <?php if ($totalCart > 0): ?>
         <span class="badge bg-danger rounded-pill badge-notifications"><?= $totalCart ?></span>
+        <?php endif; ?>
       </a>
     </li>
       <li class="nav-item navbar-dropdown dropdown-user dropdown">

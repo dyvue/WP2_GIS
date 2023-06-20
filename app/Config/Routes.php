@@ -73,6 +73,8 @@ $routes->get('order/logout', 'AuthCustomerController::logout', ['filter' => 'aut
 $routes->get('order', 'OrderController::index', ['filter' => 'authcustomerfilter']);
 $routes->post('order', 'OrderController::store', ['filter' => 'authcustomerfilter']);
 $routes->get('order/cart', 'OrderCartController::index', ['filter' => 'authcustomerfilter']);
+$routes->post('order/cart', 'OrderCartController::store', ['filter' => 'authcustomerfilter']);
+$routes->get('order/transaction/(:segment)', 'OrderTransactionController::index/$1', ['filter' => 'authcustomerfilter']);
 
 
 /*

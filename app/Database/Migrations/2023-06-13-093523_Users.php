@@ -9,7 +9,7 @@ class Users extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id'         => ['type' => 'BINARY', 'constraint' => 16],
+            'id'         => ['type' => 'CHAR', 'constraint' => 10],
             'name'       => ['type' => 'VARCHAR', 'constraint' => 255],
             'email'      => ['type' => 'VARCHAR', 'constraint' => 255],
             'photo'      => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],

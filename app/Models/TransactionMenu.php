@@ -4,11 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ReservationTableCart extends Model
+class TransactionMenu extends Model
 {
-    protected $table = 'reservation_table_carts';
+    protected $table = 'transaction_menus';
     protected $beforeInsert = ['generateID'];
-    protected $allowedFields = ['reservation_table_id', 'menu_id', 'total', 'created_at', 'updated_at'];
+    protected $allowedFields = ['transaction_id', 'menu_id', 'total', 'created_at', 'updated_at'];
     protected $useTimestamps = true;
     protected $useSoftDeletes = true;
     protected $deletedField = 'deleted_at';

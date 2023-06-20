@@ -9,7 +9,7 @@ class ReservationTableCarts extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id'                        => ['type' => 'BINARY', 'constraint' => 16],
+            'id'                        => ['type' => 'CHAR', 'constraint' => 10],
             'reservation_table_id'      => ['type' => 'CHAR', 'constraint' => 8],
             'menu_id'                   => ['type' => 'CHAR', 'constraint' => 10],
             'total'                     => ['type' => 'INT', 'constraint' => 2],
