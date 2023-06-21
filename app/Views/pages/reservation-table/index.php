@@ -25,7 +25,10 @@
                                 <?php foreach ($reservationTables as $index => $item) : ?>
                                     <tr>
                                         <td>#<?= $item['id'] ?></td>
-                                        <td><strong><?= $item['name'] ?></strong></td>
+                                        <td class="d-flex align-items-center gap-2">
+                                            <img src="<?= $item['qr_code'] ?>" alt="<?= $item['name'] ?>" class="d-block rounded object-fit-cover modal-basic-qr-show cursor-pointer" height="50" width="50">
+                                            <strong><?= $item['name'] ?></strong>
+                                        </td>
                                         <td class="text-center">
                                             <div class="d-flex gap-2">
                                                 <a class="text-black modal-basic-edit" href="javascript:void(0)" data-id="<?= $item['id'] ?>" data-name="<?= $item['name'] ?>" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" title="Edit"><i class="bx bx-sm bx-edit"></i></a>
@@ -43,6 +46,7 @@
     </div>
 </div>
 <?php include 'partials/modal-form.php'; ?>
+<?php include 'partials/modal-qr.php'; ?>
 <?php
 if (session()->getFlashdata('success')) :
     echo showToast('bg-default', 'Informasi', session()->getFlashdata('success'));
@@ -50,29 +54,55 @@ endif;
 ?>
 <?= $this->endSection() ?>
 
+<?= $this->section("css") ?>
+<style>
+    @media print {
+        body {
+            visibility: hidden;
+        }
+
+        #modal-basic-qr-img {
+            visibility: visible;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+</style>
+<?= $this->endSection() ?>
+
 <?= $this->section("scripts") ?>
 <script>
-const modalBasicFormCreate = () => {
-    $('#form-modal').attr('action', '/master/reservation-tables')
-    $('#form-modal-input-name').val('')
-    $('#modal-basic-form-title').text('Tambah Meja')
-    $('#modal-basic-form').modal('show')
-}
+    const modalBasicFormCreate = () => {
+        $('#form-modal').attr('action', '/master/reservation-tables')
+        $('#form-modal-input-name').val('')
+        $('#modal-basic-form-title').text('Tambah Meja')
+        $('#modal-basic-form').modal('show')
+    }
 
-$('.modal-basic-edit').click(function(e) {
-    e.preventDefault()
-    const id = $(this).data('id'),
-        name = $(this).data('name')
-    $('#form-modal').attr('action', '/master/reservation-tables/update/' + id)
-    $('#form-modal-input-name').val(name)
-    $('#modal-basic-form-title').text('Edit Meja')
-    $('#modal-basic-form').modal('show')
-})
+    $('.modal-basic-edit').click(function(e) {
+        e.preventDefault()
+        const id = $(this).data('id'),
+            name = $(this).data('name')
+        $('#form-modal').attr('action', '/master/reservation-tables/update/' + id)
+        $('#form-modal-input-name').val(name)
+        $('#modal-basic-form-title').text('Edit Meja')
+        $('#modal-basic-form').modal('show')
+    })
 
-$('.data-table').DataTable({
-    ordering: false,
-    lengthChange: false,
-    pageLength: 5
-})
+    $('.modal-basic-qr-show').click(function(e) {
+        e.preventDefault()
+        const id = $(this).data('id'),
+            src = $(this).attr('src')
+        $('#modal-basic-qr-title').text('Scan QR Code')
+        $('#modal-basic-qr-img').attr('src', src)
+        $('#modal-basic-qr').modal('show')
+    })
+
+    $('.data-table').DataTable({
+        ordering: false,
+        lengthChange: false,
+        pageLength: 5
+    })
 </script>
 <?= $this->endSection() ?>

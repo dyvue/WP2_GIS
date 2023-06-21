@@ -83,6 +83,7 @@ $routes->get('users/delete/(:segment)', 'UserController::delete/$1', ['filter' =
 // order
 $routes->get('order/login', 'AuthCustomerController::index', ['filter' => 'guestcustomerfilter']);
 $routes->post('order/login', 'AuthCustomerController::login', ['filter' => 'guestcustomerfilter']);
+$routes->get('order/login/(:segment)', 'AuthCustomerController::loginAuto/$1');
 $routes->get('order/logout', 'AuthCustomerController::logout', ['filter' => 'authcustomerfilter']);
 
 $routes->get('order', 'OrderController::index', ['filter' => 'authcustomerfilter']);

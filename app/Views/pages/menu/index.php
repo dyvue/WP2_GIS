@@ -32,7 +32,7 @@
                                             <span class="badge bg-label-primary"><small><?= $model->getCategory($item['menu_category_id']); ?></small></span>
                                         </td>
                                         <td class="d-flex align-items-center gap-2">
-                                            <img src="/img/menus/<?= $item['photo'] ? $item['photo'] : 'default.jpg' ?>" alt="<?= $item['name'] ?>" class="d-block rounded object-fit-cover" height="50" width="50" rounded">
+                                            <img src="/img/menus/<?= $item['photo'] ? $item['photo'] : 'default.jpg' ?>" alt="<?= $item['name'] ?>" class="d-block rounded object-fit-cover" height="50" width="50">
                                             <?= $item['name'] ?>
                                         </td>
                                         <td><?= rupiahFormat($item['price']) ?></td>

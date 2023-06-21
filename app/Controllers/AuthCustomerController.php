@@ -28,6 +28,21 @@ class AuthCustomerController extends BaseController
         }
     }
 
+    public function loginAuto($reservationTableId)
+    {
+        $model = new ReservationTable();
+        $reservationTable = $model->where('id', $reservationTableId)->first();
+
+        if ($reservationTable) {
+            $session = session();
+            $session->set('SES_AUTH_CUSTOMER_TABLE', $reservationTable['id']);
+
+            return redirect()->to('/order');
+        } else {
+            return redirect()->to('/order/login')->with('error', 'Meja tidak ditemukan');
+        }
+    }
+
     public function logout()
     {
         $session = session();
