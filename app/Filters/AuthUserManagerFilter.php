@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class AuthFilter implements FilterInterface
+class AuthUserManagerFilter implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
@@ -32,6 +32,11 @@ class AuthFilter implements FilterInterface
         $profile = new \App\Models\User();
         $profile = $profile->find(session()->get('SES_AUTH_USER_ID'));
         if (!$profile) {
+            $session = session();
+            $session->remove('SES_AUTH_USER_ID');
+            return redirect()->to('/login');
+        }
+        else if ($profile && $profile['role'] != 'Manajer') {
             $session = session();
             $session->remove('SES_AUTH_USER_ID');
             return redirect()->to('/login');

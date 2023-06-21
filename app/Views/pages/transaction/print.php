@@ -1,6 +1,6 @@
 <?= $this->extend("layouts/blank") ?>
 
-<?= $this->section("title") ?>Order (Print)<?= $this->endSection() ?>
+<?= $this->section("title") ?>Transaksi (Print)<?= $this->endSection() ?>
 
 <?= $this->section("content") ?>
 <div class="invoice-print p-5">

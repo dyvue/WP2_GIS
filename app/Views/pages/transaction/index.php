@@ -88,26 +88,42 @@ endif;
         buttons: [
             {
                 text: '<i class="bx bx-refresh"></i> Refresh',
-                className: "btn btn-secondary",
+                className: "btn btn-secondary mx-1 rounded-pill",
                 action: function () {
                     window.location.href = ""
                 }
             },
             {
-                extend: "pdf",
-                text: '<i class="bx bxs-file-pdf me-1" ></i>PDF',
-            },
-            {
                 extend: "print",
                 text: '<i class="bx bxs-printer me-1" ></i>Print',
+                className: "btn btn-outline-secondary mx-1 rounded-pill",
+                exportOptions: {
+                    columns: [0, 1, 2, 3],
+                }
+            },
+            {
+                extend: "pdf",
+                text: '<i class="bx bxs-file-pdf me-1" ></i>PDF',
+                className: "btn btn-outline-danger mx-1 rounded-pill",
+                exportOptions: {
+                    columns: [0, 1, 2, 3],
+                }
             },
             {
                 extend: "excel",
                 text: '<i class="bx bx-table me-1" ></i>Excel',
+                className: "btn btn-outline-success mx-1 rounded-pill",
+                exportOptions: {
+                    columns: [0, 1, 2, 3],
+                }
             },
             {
                 extend: "csv",
                 text: '<i class="bx bxs-spreadsheet me-1" ></i>CSV',
+                className: "btn btn-outline-success mx-1 rounded-pill",
+                exportOptions: {
+                    columns: [0, 1, 2, 3],
+                }
             },
         ]
     })

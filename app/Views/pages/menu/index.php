@@ -9,7 +9,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header absolute">
-                    <a href="<?= site_url('master/menus/create') ?>" class="btn btn-primary"><span class="tf-icons bx bx-plus-circle"></span> Tambah Menu</a>
+                    <a href="<?= site_url('master/menus/create') ?>" class="btn btn-primary rounded-pill"><span class="tf-icons bx bx-plus-circle"></span> Tambah Menu</a>
                 </div>
                 <div class="mt-4 card-body">
                     <div class="table-responsive text-nowrap">

@@ -9,7 +9,7 @@
         <div class="col-12 col-md-8">
             <div class="card">
                 <div class="card-header absolute">
-                    <button class="btn btn-primary" onclick="modalBasicFormCreate()"><span class="tf-icons bx bx-plus-circle"></span> Tambah Metode Pembayaran</button>
+                    <button class="btn btn-primary rounded-pill" onclick="modalBasicFormCreate()"><span class="tf-icons bx bx-plus-circle"></span> Tambah Metode Pembayaran</button>
                 </div>
                 <div class="mt-4 card-body">
                     <div class="table-responsive text-nowrap">

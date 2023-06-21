@@ -1,6 +1,6 @@
 <?= $this->extend("layouts/default") ?>
 
-<?= $this->section("title") ?>Order<?= $this->endSection() ?>
+<?= $this->section("title") ?>Transaksi<?= $this->endSection() ?>
 
 <?= $this->section("content") ?>
 <div class="container-xxl flex-grow-1 container-p-y">

@@ -17,6 +17,8 @@ if (!function_exists('is_active_menu')) {
     return (strpos($currentURL, $urlSegment) !== false) ? 'active open' : '';
   }
 }
+$profile = new App\Models\User();
+$profile = $profile->find(session()->get('SES_AUTH_USER_ID'));
 ?>
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
   <div class="app-brand demo">
@@ -37,6 +39,7 @@ if (!function_exists('is_active_menu')) {
         <div data-i18n="Analytics">Dashboard</div>
       </a>
     </li>
+    <?php if ($profile['role'] == 'Manajer'): ?>
     <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
     <li class="menu-item <?= is_active_menu('master/menus'); ?>">
       <a href="<?= site_url('master/menus'); ?>" class="menu-link">
@@ -62,6 +65,8 @@ if (!function_exists('is_active_menu')) {
         <div data-i18n="Container">Kategori Menu</div>
       </a>
     </li>
+    <?php endif; ?>
+    <?php if ($profile['role'] == 'Manajer' || $profile['role'] == 'Kasir'): ?>
     <li class="menu-header small text-uppercase"><span class="menu-header-text">Order</span></li>
     <li class="menu-item <?= is_active_menu('transactions'); ?>">
       <a href="<?= site_url('transactions'); ?>" class="menu-link">
@@ -69,6 +74,8 @@ if (!function_exists('is_active_menu')) {
         <div data-i18n="Boxicons">Transaksi</div>
       </a>
     </li>
+    <?php endif; ?>
+    <?php if ($profile['role'] == 'Manajer'): ?>
     <li class="menu-header small text-uppercase"><span class="menu-header-text">Akun</span></li>
     <li class="menu-item <?= is_active_menu('users'); ?>">
       <a href="<?= site_url('users'); ?>" class="menu-link">
@@ -76,5 +83,6 @@ if (!function_exists('is_active_menu')) {
         <div data-i18n="Boxicons">Pengguna</div>
       </a>
     </li>
+    <?php endif; ?>
   </ul>
 </aside>

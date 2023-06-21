@@ -32,52 +32,52 @@ $routes->set404Override();
 
 $routes->get('login', 'AuthController::index', ['filter' => 'guestfilter']);
 $routes->post('login', 'AuthController::login', ['filter' => 'guestfilter']);
-$routes->get('logout', 'AuthController::logout', ['filter' => 'authfilter']);
+$routes->get('logout', 'AuthController::logout', ['filter' => 'authuserfilter']);
 
-$routes->get('/', 'DashboardController::index', ['filter' => 'authfilter']);
-$routes->get('/profile', 'ProfileController::index', ['filter' => 'authfilter']);
-$routes->post('/profile', 'ProfileController::save', ['filter' => 'authfilter']);
-$routes->post('/profile/change-password', 'ProfileController::changePassword', ['filter' => 'authfilter']);
+$routes->get('/', 'DashboardController::index', ['filter' => 'authuserfilter']);
+$routes->get('/profile', 'ProfileController::index', ['filter' => 'authuserfilter']);
+$routes->post('/profile', 'ProfileController::save', ['filter' => 'authuserfilter']);
+$routes->post('/profile/change-password', 'ProfileController::changePassword', ['filter' => 'authuserfilter']);
 
 // menu categories
-$routes->get('master/menu-categories', 'MenuCategoryController::index', ['filter' => 'authfilter']);
-$routes->post('master/menu-categories', 'MenuCategoryController::store', ['filter' => 'authfilter']);
-$routes->post('master/menu-categories/update/(:segment)', 'MenuCategoryController::update/$1', ['filter' => 'authfilter']);
-$routes->get('master/menu-categories/delete/(:segment)', 'MenuCategoryController::delete/$1', ['filter' => 'authfilter']);
+$routes->get('master/menu-categories', 'MenuCategoryController::index', ['filter' => 'authusermanajerfilter']);
+$routes->post('master/menu-categories', 'MenuCategoryController::store', ['filter' => 'authusermanajerfilter']);
+$routes->post('master/menu-categories/update/(:segment)', 'MenuCategoryController::update/$1', ['filter' => 'authusermanajerfilter']);
+$routes->get('master/menu-categories/delete/(:segment)', 'MenuCategoryController::delete/$1', ['filter' => 'authusermanajerfilter']);
 // menu
-$routes->get('master/menus', 'MenuController::index', ['filter' => 'authfilter']);
-$routes->get('master/menus/create', 'MenuController::create', ['filter' => 'authfilter']);
-$routes->post('master/menus/create', 'MenuController::store', ['filter' => 'authfilter']);
-$routes->get('master/menus/edit/(:segment)', 'MenuController::edit/$1', ['filter' => 'authfilter']);
-$routes->post('master/menus/update/(:segment)', 'MenuController::update/$1', ['filter' => 'authfilter']);
-$routes->get('master/menus/set-status/(:segment)', 'MenuController::setStatus/$1', ['filter' => 'authfilter']);
-$routes->get('master/menus/set-best-seller/(:segment)', 'MenuController::setBestSeller/$1', ['filter' => 'authfilter']);
-$routes->get('master/menus/delete/(:segment)', 'MenuController::delete/$1', ['filter' => 'authfilter']);
+$routes->get('master/menus', 'MenuController::index', ['filter' => 'authusermanajerfilter']);
+$routes->get('master/menus/create', 'MenuController::create', ['filter' => 'authusermanajerfilter']);
+$routes->post('master/menus/create', 'MenuController::store', ['filter' => 'authusermanajerfilter']);
+$routes->get('master/menus/edit/(:segment)', 'MenuController::edit/$1', ['filter' => 'authusermanajerfilter']);
+$routes->post('master/menus/update/(:segment)', 'MenuController::update/$1', ['filter' => 'authusermanajerfilter']);
+$routes->get('master/menus/set-status/(:segment)', 'MenuController::setStatus/$1', ['filter' => 'authusermanajerfilter']);
+$routes->get('master/menus/set-best-seller/(:segment)', 'MenuController::setBestSeller/$1', ['filter' => 'authusermanajerfilter']);
+$routes->get('master/menus/delete/(:segment)', 'MenuController::delete/$1', ['filter' => 'authusermanajerfilter']);
 // reservation tables
-$routes->get('master/reservation-tables', 'ReservationTableController::index', ['filter' => 'authfilter']);
-$routes->post('master/reservation-tables', 'ReservationTableController::store', ['filter' => 'authfilter']);
-$routes->post('master/reservation-tables/update/(:segment)', 'ReservationTableController::update/$1', ['filter' => 'authfilter']);
-$routes->get('master/reservation-tables/delete/(:segment)', 'ReservationTableController::delete/$1', ['filter' => 'authfilter']);
+$routes->get('master/reservation-tables', 'ReservationTableController::index', ['filter' => 'authusermanajerfilter']);
+$routes->post('master/reservation-tables', 'ReservationTableController::store', ['filter' => 'authusermanajerfilter']);
+$routes->post('master/reservation-tables/update/(:segment)', 'ReservationTableController::update/$1', ['filter' => 'authusermanajerfilter']);
+$routes->get('master/reservation-tables/delete/(:segment)', 'ReservationTableController::delete/$1', ['filter' => 'authusermanajerfilter']);
 // payment methods
-$routes->get('master/payment-methods', 'PaymentMethodController::index', ['filter' => 'authfilter']);
-$routes->post('master/payment-methods', 'PaymentMethodController::store', ['filter' => 'authfilter']);
-$routes->post('master/payment-methods/update/(:segment)', 'PaymentMethodController::update/$1', ['filter' => 'authfilter']);
-$routes->get('master/payment-methods/delete/(:segment)', 'PaymentMethodController::delete/$1', ['filter' => 'authfilter']);
+$routes->get('master/payment-methods', 'PaymentMethodController::index', ['filter' => 'authusermanajerfilter']);
+$routes->post('master/payment-methods', 'PaymentMethodController::store', ['filter' => 'authusermanajerfilter']);
+$routes->post('master/payment-methods/update/(:segment)', 'PaymentMethodController::update/$1', ['filter' => 'authusermanajerfilter']);
+$routes->get('master/payment-methods/delete/(:segment)', 'PaymentMethodController::delete/$1', ['filter' => 'authusermanajerfilter']);
 // transactions
-$routes->get('transactions', 'TransactionController::index', ['filter' => 'authfilter']);
-$routes->get('transactions/(:segment)', 'TransactionController::show/$1', ['filter' => 'authfilter']);
-$routes->get('transactions/(:segment)/print', 'TransactionController::print/$1', ['filter' => 'authfilter']);
-$routes->post('transactions/done/(:segment)', 'TransactionController::done/$1', ['filter' => 'authfilter']);
-$routes->get('transactions/serve/(:segment)', 'TransactionController::serve/$1', ['filter' => 'authfilter']);
-$routes->get('transactions/cancel/(:segment)', 'TransactionController::cancel/$1', ['filter' => 'authfilter']);
+$routes->get('transactions', 'TransactionController::index', ['filter' => 'authuserfilter']);
+$routes->get('transactions/(:segment)', 'TransactionController::show/$1', ['filter' => 'authuserfilter']);
+$routes->get('transactions/(:segment)/print', 'TransactionController::print/$1', ['filter' => 'authuserfilter']);
+$routes->post('transactions/done/(:segment)', 'TransactionController::done/$1', ['filter' => 'authuserfilter']);
+$routes->get('transactions/serve/(:segment)', 'TransactionController::serve/$1', ['filter' => 'authuserfilter']);
+$routes->get('transactions/cancel/(:segment)', 'TransactionController::cancel/$1', ['filter' => 'authuserfilter']);
 // user
-$routes->get('users', 'UserController::index', ['filter' => 'authfilter']);
-$routes->get('users/create', 'UserController::create', ['filter' => 'authfilter']);
-$routes->post('users/create', 'UserController::store', ['filter' => 'authfilter']);
-$routes->get('users/edit/(:segment)', 'UserController::edit/$1', ['filter' => 'authfilter']);
-$routes->post('users/update/(:segment)', 'UserController::update/$1', ['filter' => 'authfilter']);
-$routes->post('users/update-password/(:segment)', 'UserController::updatePassword/$1', ['filter' => 'authfilter']);
-$routes->get('users/delete/(:segment)', 'UserController::delete/$1', ['filter' => 'authfilter']);
+$routes->get('users', 'UserController::index', ['filter' => 'authusermanajerfilter']);
+$routes->get('users/create', 'UserController::create', ['filter' => 'authusermanajerfilter']);
+$routes->post('users/create', 'UserController::store', ['filter' => 'authusermanajerfilter']);
+$routes->get('users/edit/(:segment)', 'UserController::edit/$1', ['filter' => 'authusermanajerfilter']);
+$routes->post('users/update/(:segment)', 'UserController::update/$1', ['filter' => 'authusermanajerfilter']);
+$routes->post('users/update-password/(:segment)', 'UserController::updatePassword/$1', ['filter' => 'authusermanajerfilter']);
+$routes->get('users/delete/(:segment)', 'UserController::delete/$1', ['filter' => 'authusermanajerfilter']);
 
 // customer routes
 // order
