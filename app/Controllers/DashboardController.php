@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\User;
+use App\Models\Transaction;
+use Config\Database;
 
 class DashboardController extends BaseController
 {
@@ -14,8 +16,17 @@ class DashboardController extends BaseController
         $hour = date('H');
         $greeting = $this->greeting($hour);
 
+        $transactionModel = new Transaction();
+        $transactionCount = $transactionModel->countAllResults();
+        $db = Database::connect();
+        $transactionSumQuery = $db->table('transactions')->selectSum('price_total')->get()->getRow();
+        $db->close();
+        $transactionValuation = $transactionSumQuery->price_total;
+
         $pass['profile'] = $profile;
         $pass['greeting'] = $greeting;
+        $pass['transactionCount'] = $transactionCount;
+        $pass['transactionValuation'] = $transactionValuation;
 
         return view("pages/home", $pass);
     }
@@ -23,13 +34,13 @@ class DashboardController extends BaseController
     private function greeting($hour)
     {
         if ($hour >= 0 && $hour < 12) {
-            return 'Selamat Pagi';
+            return 'Pagi';
         } elseif ($hour >= 12 && $hour < 15) {
-            return 'Selamat Siang';
+            return 'Siang';
         } elseif ($hour >= 15 && $hour < 18) {
-            return 'Selamat Sore';
+            return 'Sore';
         } else {
-            return 'Selamat Malam';
+            return 'Malam';
         }
     }
 }

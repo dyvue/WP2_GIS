@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\ReservationTableCart;
-use App\Models\Transaction;
 use App\Models\TransactionMenu;
 use Config\Database;
 

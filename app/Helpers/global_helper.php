@@ -32,6 +32,12 @@ function rupiahFormat($price)
     return $formattedPrice;
 }
 
+function rupiahFormatDashboard($price)
+{
+    $formattedPrice = 'Rp' . number_format($price, 0, ',', '.');
+    return $formattedPrice;
+}
+
 function generateRandomString($length)
 {
     $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';

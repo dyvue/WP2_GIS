@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-4">
                         <img src="/logo.png" alt="Mangan" class="w-brand">
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Mangan.</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2 text-primary">Mangan.</span>
                     </div>
                     <p class="mb-4">Silahkan login untuk melanjutkan</p>
                     <?php if (session()->getFlashdata('error')) : ?>
@@ -24,9 +24,6 @@
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
                                 <label class="form-label" for="password">Password</label>
-                                <a href="auth-forgot-password-basic.html">
-                                    <small>Lupa Password?</small>
-                                </a>
                             </div>
                             <div class="input-group input-group-merge">
                                 <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
