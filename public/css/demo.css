@@ -111,8 +111,14 @@
 .w-brand-customer {
   width: 6%;
 }
+.w-5 {
+  width: 20px;
+}
 .w-10 {
   width: 40px;
+}
+.w-100p {
+  width: 100px;
 }
 .pagination {
   display: flex;
@@ -173,4 +179,8 @@
 }
 .h-cart-image {
   height: 100px !important;
+}
+.dt-buttons {
+  position: absolute;
+  top: 20px;
 }

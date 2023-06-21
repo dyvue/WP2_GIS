@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <title><?= $this->renderSection('title') ?></title>
-    <meta name="description" content="Mangan jagonya masakan padang!" />
+    <meta name="description" content="" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +26,7 @@
     <script src="/vendor/libs/jquery/jquery.js"></script>
     <script src="/vendor/js/bootstrap.js"></script>
     <script src="/js/main.js"></script>
+    <?= $this->renderSection('scripts') ?>
 </body>
 
 </html>

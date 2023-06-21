@@ -8,7 +8,7 @@ class Transaction extends Model
 {
     protected $table = 'transactions';
     protected $beforeInsert = ['generateID'];
-    protected $allowedFields = ['reservation_table_id', 'payment_method_id', 'tax_11', 'price_total', 'created_at', 'updated_at'];
+    protected $allowedFields = ['reservation_table_id', 'payment_method_id', 'tax_11', 'price_total', 'status', 'created_at', 'updated_at'];
     protected $useTimestamps = true;
     protected $useSoftDeletes = true;
     protected $deletedField = 'deleted_at';
@@ -43,6 +43,30 @@ class Transaction extends Model
     {
         $transactionMenuModel = new TransactionMenu();
         $data = $transactionMenuModel->where('transaction_id', $transactionId)->findAll();
+
+        if ($data) {
+            return $data;
+        }
+
+        return null;
+    }
+
+    public function getReservationTable($reservationTableId)
+    {
+        $reservationTable = new ReservationTable();
+        $data = $reservationTable->find($reservationTableId);
+
+        if ($data) {
+            return $data;
+        }
+
+        return null;
+    }
+
+    public function getPaymentMethod($paymentMethodId)
+    {
+        $paymentMethod = new PaymentMethod();
+        $data = $paymentMethod->find($paymentMethodId);
 
         if ($data) {
             return $data;

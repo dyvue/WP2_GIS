@@ -13,7 +13,7 @@ class OrderCartController extends BaseController
     {
         $reservationTableId = session()->get('SES_AUTH_CUSTOMER_TABLE');
         $reservationTableCartModel = new ReservationTableCart();
-        $reservationTableCarts = $reservationTableCartModel->where('reservation_table_id', $reservationTableId)->orderBy('updated_at', 'DESC')->findAll();
+        $reservationTableCarts = $reservationTableCartModel->where('reservation_table_id', $reservationTableId)->orderBy('created_at', 'DESC')->findAll();
 
         $orderTotalCart = 0;
         $orderTotalPrice = 0;
@@ -47,8 +47,9 @@ class OrderCartController extends BaseController
     public function store()
     {
         $reservationTableId = session()->get('SES_AUTH_CUSTOMER_TABLE');
+        $customerName = $this->request->getPost('form-customer-name');
         $reservationTableCartModel = new ReservationTableCart();
-        $reservationTableCarts = $reservationTableCartModel->where('reservation_table_id', $reservationTableId)->orderBy('updated_at', 'DESC')->findAll();
+        $reservationTableCarts = $reservationTableCartModel->where('reservation_table_id', $reservationTableId)->orderBy('created_at', 'DESC')->findAll();
 
         $orderTotalPrice = 0;
         $tax11 = 0;
@@ -68,6 +69,7 @@ class OrderCartController extends BaseController
         $data = [
             'id' => $generateUUID,
             'reservation_table_id' => $reservationTableId,
+            'customer_name' => $customerName,
             'tax_11' => $tax11,
             'price_total' => $totalPrice,
             'created_at' => $currentDateTime,
@@ -93,5 +95,45 @@ class OrderCartController extends BaseController
         }
 
         return redirect()->to('order/transaction/'.$generateUUID)->with('success', 'Order berhasil, pesanan anda sedang diproses');
+    }
+
+    public function plus($id)
+    {
+        $model = new ReservationTableCart();
+        $get = $model->find($id);
+
+        $total = $get['total'] + 1;
+
+        $data = [
+            'total' => $total
+        ];
+
+        $model->update($id, $data);
+
+        return redirect()->back();
+    }
+
+    public function minus($id)
+    {
+        $model = new ReservationTableCart();
+        $get = $model->find($id);
+
+        $total = $get['total'] - 1;
+
+        $data = [
+            'total' => $total
+        ];
+
+        $model->update($id, $data);
+
+        return redirect()->back();
+    }
+
+    public function delete($id)
+    {
+        $model = new ReservationTableCart();
+        $model->delete($id);
+
+        return redirect()->back();
     }
 }

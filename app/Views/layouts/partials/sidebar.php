@@ -32,51 +32,40 @@ if (!function_exists('is_active_menu')) {
   <div class="menu-inner-shadow"></div>
   <ul class="menu-inner py-1">
     <li class="menu-item <?= is_root_path(); ?>">
-        <a href="<?= site_url('/'); ?>" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-            <div data-i18n="Analytics">Dashboard</div>
-        </a>
-    </li>
-    <li class="menu-item <?= is_active_menu('master'); ?>">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-            <i class="menu-icon tf-icons bx bx-package"></i>
-            <div data-i18n="Master">Master</div>
-        </a>
-
-        <ul class="menu-sub">
-            <li class="menu-item <?= is_active_menu('master/menus'); ?>">
-                <a href="<?= site_url('master/menus'); ?>" class="menu-link">
-                    <div data-i18n="Without menu">Daftar Menu</div>
-                </a>
-            </li>
-            <li class="menu-item <?= is_active_menu('master/reservation-tables'); ?>">
-                <a href="<?= site_url('master/reservation-tables'); ?>" class="menu-link">
-                    <div data-i18n="Without menu">Daftar Meja</div>
-                </a>
-            </li>
-            <li class="menu-item <?= is_active_menu('master/payment-methods'); ?>">
-                <a href="<?= site_url('master/payment-methods'); ?>" class="menu-link">
-                    <div data-i18n="Without menu">Metode Pembayaran</div>
-                </a>
-            </li>
-            <li class="menu-item <?= is_active_menu('master/menu-categories'); ?>">
-                <a href="<?= site_url('master/menu-categories'); ?>" class="menu-link">
-                    <div data-i18n="Container">Kategori Menu</div>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="menu-header small text-uppercase"><span class="menu-header-text">Order</span></li>
-    <li class="menu-item <?= is_active_menu('transaction'); ?>">
-      <a href="<?= site_url('transaction'); ?>" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-wallet"></i>
-        <div data-i18n="Boxicons">Transaksi</div>
+      <a href="<?= site_url('/'); ?>" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-home-circle"></i>
+        <div data-i18n="Analytics">Dashboard</div>
       </a>
     </li>
-    <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan</span></li>
-    <li class="menu-item <?= is_active_menu('report/transaction'); ?>">
-      <a href="<?= site_url('report/transaction'); ?>" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-detail"></i>
+    <li class="menu-header small text-uppercase"><span class="menu-header-text">Master</span></li>
+    <li class="menu-item <?= is_active_menu('master/menus'); ?>">
+      <a href="<?= site_url('master/menus'); ?>" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-food-menu"></i>
+        <div data-i18n="Without menu">Daftar Menu</div>
+      </a>
+    </li>
+    <li class="menu-item <?= is_active_menu('master/reservation-tables'); ?>">
+      <a href="<?= site_url('master/reservation-tables'); ?>" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-message-square-dots"></i>
+        <div data-i18n="Without menu">Daftar Meja</div>
+      </a>
+    </li>
+    <li class="menu-item <?= is_active_menu('master/payment-methods'); ?>">
+      <a href="<?= site_url('master/payment-methods'); ?>" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-bank"></i>
+        <div data-i18n="Without menu">Metode Pembayaran</div>
+      </a>
+    </li>
+    <li class="menu-item <?= is_active_menu('master/menu-categories'); ?>">
+      <a href="<?= site_url('master/menu-categories'); ?>" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-bookmarks"></i>
+        <div data-i18n="Container">Kategori Menu</div>
+      </a>
+    </li>
+    <li class="menu-header small text-uppercase"><span class="menu-header-text">Order</span></li>
+    <li class="menu-item <?= is_active_menu('transactions'); ?>">
+      <a href="<?= site_url('transactions'); ?>" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-wallet"></i>
         <div data-i18n="Boxicons">Transaksi</div>
       </a>
     </li>

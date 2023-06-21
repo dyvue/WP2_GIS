@@ -63,6 +63,13 @@ $routes->get('master/payment-methods', 'PaymentMethodController::index', ['filte
 $routes->post('master/payment-methods', 'PaymentMethodController::store', ['filter' => 'authfilter']);
 $routes->post('master/payment-methods/update/(:segment)', 'PaymentMethodController::update/$1', ['filter' => 'authfilter']);
 $routes->get('master/payment-methods/delete/(:segment)', 'PaymentMethodController::delete/$1', ['filter' => 'authfilter']);
+// transactions
+$routes->get('transactions', 'TransactionController::index', ['filter' => 'authfilter']);
+$routes->get('transactions/(:segment)', 'TransactionController::show/$1', ['filter' => 'authfilter']);
+$routes->get('transactions/(:segment)/print', 'TransactionController::print/$1', ['filter' => 'authfilter']);
+$routes->post('transactions/done/(:segment)', 'TransactionController::done/$1', ['filter' => 'authfilter']);
+$routes->get('transactions/serve/(:segment)', 'TransactionController::serve/$1', ['filter' => 'authfilter']);
+$routes->get('transactions/cancel/(:segment)', 'TransactionController::cancel/$1', ['filter' => 'authfilter']);
 
 // customer routes
 // order
@@ -74,7 +81,11 @@ $routes->get('order', 'OrderController::index', ['filter' => 'authcustomerfilter
 $routes->post('order', 'OrderController::store', ['filter' => 'authcustomerfilter']);
 $routes->get('order/cart', 'OrderCartController::index', ['filter' => 'authcustomerfilter']);
 $routes->post('order/cart', 'OrderCartController::store', ['filter' => 'authcustomerfilter']);
+$routes->post('order/cart/(:segment)/plus', 'OrderCartController::plus/$1', ['filter' => 'authcustomerfilter']);
+$routes->post('order/cart/(:segment)/minus', 'OrderCartController::minus/$1', ['filter' => 'authcustomerfilter']);
+$routes->post('order/cart/(:segment)/delete', 'OrderCartController::delete/$1', ['filter' => 'authcustomerfilter']);
 $routes->get('order/transaction/(:segment)', 'OrderTransactionController::index/$1', ['filter' => 'authcustomerfilter']);
+$routes->get('order/transaction/(:segment)/print', 'OrderTransactionController::print/$1', ['filter' => 'authcustomerfilter']);
 
 
 /*
