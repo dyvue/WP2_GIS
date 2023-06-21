@@ -8,7 +8,7 @@ class User extends Model
 {
 	protected $table = 'users';
 	protected $beforeInsert = ['generateID'];
-	protected $allowedFields = ['name', 'email', 'photo', 'is_active', 'password', 'created_at', 'updated_at'];
+	protected $allowedFields = ['role', 'name', 'email', 'photo', 'is_active', 'password', 'created_at', 'updated_at'];
 	protected $useTimestamps = true;
 	protected $useSoftDeletes = true;
 	protected $deletedField = 'deleted_at';

@@ -69,5 +69,12 @@ if (!function_exists('is_active_menu')) {
         <div data-i18n="Boxicons">Transaksi</div>
       </a>
     </li>
+    <li class="menu-header small text-uppercase"><span class="menu-header-text">Akun</span></li>
+    <li class="menu-item <?= is_active_menu('users'); ?>">
+      <a href="<?= site_url('users'); ?>" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-user-account"></i>
+        <div data-i18n="Boxicons">Pengguna</div>
+      </a>
+    </li>
   </ul>
 </aside>

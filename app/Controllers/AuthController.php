@@ -18,7 +18,7 @@ class AuthController extends BaseController
         $password = $this->request->getPost('password');
 
         $userModel = new User();
-        $user = $userModel->where('email', $email)->first();
+        $user = $userModel->where('email', $email)->where('is_active', 1)->first();
 
         if ($user && password_verify($password, $user['password'])) {
             $session = session();

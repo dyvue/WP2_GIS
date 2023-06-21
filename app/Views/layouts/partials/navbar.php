@@ -28,6 +28,7 @@ $firstName = explode(" ", $profile['name'])[0];
             </div>
             <div class="flex-grow-1">
               <span class="fw-semibold d-block"><?= $firstName ?></span>
+              <small class="text-muted"><?= $profile['role'] ?></small>
             </div>
           </div>
         </a>

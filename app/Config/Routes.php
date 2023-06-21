@@ -70,6 +70,14 @@ $routes->get('transactions/(:segment)/print', 'TransactionController::print/$1',
 $routes->post('transactions/done/(:segment)', 'TransactionController::done/$1', ['filter' => 'authfilter']);
 $routes->get('transactions/serve/(:segment)', 'TransactionController::serve/$1', ['filter' => 'authfilter']);
 $routes->get('transactions/cancel/(:segment)', 'TransactionController::cancel/$1', ['filter' => 'authfilter']);
+// user
+$routes->get('users', 'UserController::index', ['filter' => 'authfilter']);
+$routes->get('users/create', 'UserController::create', ['filter' => 'authfilter']);
+$routes->post('users/create', 'UserController::store', ['filter' => 'authfilter']);
+$routes->get('users/edit/(:segment)', 'UserController::edit/$1', ['filter' => 'authfilter']);
+$routes->post('users/update/(:segment)', 'UserController::update/$1', ['filter' => 'authfilter']);
+$routes->post('users/update-password/(:segment)', 'UserController::updatePassword/$1', ['filter' => 'authfilter']);
+$routes->get('users/delete/(:segment)', 'UserController::delete/$1', ['filter' => 'authfilter']);
 
 // customer routes
 // order
