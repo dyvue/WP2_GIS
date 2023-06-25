@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Config\Database;
 
 class Menu extends Model
 {
@@ -29,8 +30,10 @@ class Menu extends Model
 
     public function getCategory($menuCategoryId)
     {
-        $categoryModel = new MenuCategory();
-        $category = $categoryModel->find($menuCategoryId);
+        $db = Database::connect();
+        $menuModel = $db->table('menu_categories')->where('id', $menuCategoryId)->get();
+        $db->close();
+        $category = $menuModel->getRowArray();
 
         if ($category) {
             return $category['name'];

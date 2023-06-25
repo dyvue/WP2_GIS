@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Config\Database;
 
 class Transaction extends Model
 {
@@ -26,52 +27,56 @@ class Transaction extends Model
         return $data;
 	}
 
-    public function insertResponse(array $data = null, bool $returnID = true)
-    {
-        $result = parent::insert($data, $returnID);
-
-        if ($result !== false && $returnID) {
-            $insertedID = $result;
-            $insertedData = $this->find($insertedID);
-            return $insertedData;
-        }
-
-        return $result;
-    }
-
     public function getTransactionMenus($transactionId)
     {
-        $transactionMenuModel = new TransactionMenu();
-        $data = $transactionMenuModel->where('transaction_id', $transactionId)->findAll();
+        $db = Database::connect();
+        $transactionMenuModel = $db->table('transaction_menus')->where('transaction_id', $transactionId)->get();
+        $db->close();
+        $data = $transactionMenuModel->getResultArray();
 
         if ($data) {
             return $data;
         }
 
-        return null;
+        return array(
+            "id" => "",
+            "transaction_id" => "",
+            "menu_id" => "",
+            "total" => 0,
+        );
     }
 
     public function getReservationTable($reservationTableId)
     {
-        $reservationTable = new ReservationTable();
-        $data = $reservationTable->find($reservationTableId);
+        $db = Database::connect();
+        $reservationTable = $db->table('reservation_tables')->where('id', $reservationTableId)->get();
+        $db->close();
+        $data = $reservationTable->getRowArray();
 
         if ($data) {
             return $data;
         }
 
-        return null;
+        return array(
+            "id" => "",
+            "name" => "",
+        );
     }
 
     public function getPaymentMethod($paymentMethodId)
     {
-        $paymentMethod = new PaymentMethod();
-        $data = $paymentMethod->find($paymentMethodId);
+        $db = Database::connect();
+        $paymentMethod = $db->table('payment_methods')->where('id', $paymentMethodId)->get();
+        $db->close();
+        $data = $paymentMethod->getRowArray();
 
         if ($data) {
             return $data;
         }
 
-        return null;
+        return array(
+            "id" => "",
+            "name" => "",
+        );
     }
 }

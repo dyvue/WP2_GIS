@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Config\Database;
 
 class ReservationTableCart extends Model
 {
@@ -28,28 +29,43 @@ class ReservationTableCart extends Model
 
     public function getMenu($menuId)
     {
-        $menuModel = new Menu();
-        $data = $menuModel->find($menuId);
+        $db = Database::connect();
+        $menuModel = $db->table('menus')->where('id', $menuId)->get();
+        $db->close();
+        $data = $menuModel->getRowArray();
 
         if ($data) {
             return $data;
         }
 
-        return null;
+        return array(
+            "id" => "",
+            "menu_category_id" => "",
+            "name" => "",
+            "photo" => "",
+            "price" => 0,
+            "is_available" => 0,
+            "is_best_seller" => 0,
+        );
     }
 
     public function getMenuCategory($menuId)
     {
-        $menuModel = new Menu();
-        $data = $menuModel->find($menuId);
-        
+        $db = Database::connect();
+        $menuModel = $db->table('menus')->where('id', $menuId)->get();
+        $data = $menuModel->getRowArray();
+
         if ($data) {
-            $menuCategoryModel = new MenuCategory();
-            $dataCat = $menuCategoryModel->find($data['menu_category_id']);
+            $menuCategoryModel = $db->table('menu_categories')->where('id', $data['menu_category_id'])->get();
+            $db->close();
+            $dataCat = $menuCategoryModel->getRowArray();
 
             return $dataCat;
         }
 
-        return null;
+        return array(
+            "id" => "",
+            "name" => "",
+        );
     }
 }
