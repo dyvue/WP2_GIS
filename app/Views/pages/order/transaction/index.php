@@ -4,9 +4,9 @@
 
 <?= $this->section("content") ?>
 <div class="container-xxl flex-grow-1 container-p-y">
-    <div class="d-flex justify-content-between align-items-center">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Order /</span> Transaksi</h4>
-        <div class="d-flex align-items-center gap-2">
+    <div class="row">
+        <h4 class="col fw-bold py-3 mb-4"><span class="text-muted fw-light">Order /</span> Transaksi</h4>
+        <div class="col d-flex align-items-center justify-content-end gap-2">
             <a class="btn btn-secondary d-flex gap-1 justify-content-center align-items-center w-100 mb-3" href="">
                 <i class="bx bx-refresh"></i> Refresh
             </a>

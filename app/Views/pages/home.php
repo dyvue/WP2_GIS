@@ -26,7 +26,7 @@
               <img src="/img/icons/unicons/paypal.png" alt="transaksi" class="rounded">
             </div>
           </div>
-          <span class="fw-semibold d-block mt-3 mb-2">Valuasi Transaksi</span>
+          <span class="fw-semibold d-block mt-3 mb-2">Valuasi Transaksi Selesai</span>
           <h3 class="card-title mb-3"><?= rupiahFormatDashboard($transactionValuation) ?></h3>
         </div>
       </div>

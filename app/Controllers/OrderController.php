@@ -58,6 +58,6 @@ class OrderController extends BaseController
             $model->insert($data);
         }
 
-        return redirect()->to('order')->with('success', 'Berhasil ditambahkan ke keranjang');
+        return redirect()->back()->with('success', 'Berhasil ditambahkan ke keranjang');
     }
 }

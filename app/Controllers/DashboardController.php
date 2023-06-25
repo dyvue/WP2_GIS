@@ -19,7 +19,7 @@ class DashboardController extends BaseController
         $transactionModel = new Transaction();
         $transactionCount = $transactionModel->countAllResults();
         $db = Database::connect();
-        $transactionSumQuery = $db->table('transactions')->selectSum('price_total')->get()->getRow();
+        $transactionSumQuery = $db->table('transactions')->selectSum('price_total')->where('status', 'Selesai')->get()->getRow();
         $db->close();
         $transactionValuation = $transactionSumQuery->price_total;
 

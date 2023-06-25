@@ -8,7 +8,7 @@
 
     <div class="card">
         <div class="card-body">
-            <div class="row">
+            <div class="row sm-gap-15">
                 <?php if ($orderTotalCart > 0) : ?>
                     <div class="col-12 col-md-8">
                         <h5>Total Pesanan: <?= $orderTotalCart ?> item</h5>

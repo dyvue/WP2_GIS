@@ -109,7 +109,7 @@
   width: 18%;
 }
 .w-brand-customer {
-  width: 6%;
+  width: 30px;
 }
 .w-5 {
   width: 20px;
@@ -183,4 +183,13 @@
 .dt-buttons {
   position: absolute;
   top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .sm-hidden {
+    display: none;
+  }
+  .sm-gap-15{
+    gap: 15px;
+  }
 }

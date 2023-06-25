@@ -15,7 +15,7 @@ foreach ($reservationTableCart as $cartItem) {
     <div class="navbar-nav align-items-center">
       <a href="<?= site_url('/order') ?>" class="app-brand-link">
         <img src="/logo.png" alt="Mangan" class="w-brand-customer">
-        <span class="app-brand-text demo menu-text fw-bolder ms-2">Mangan.</span>
+        <span class="app-brand-text demo menu-text fw-bolder ms-2 sm-hidden">Mangan.</span>
       </a>
     </div>
     <ul class="navbar-nav flex-row align-items-center ms-auto">
