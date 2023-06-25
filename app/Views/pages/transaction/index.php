@@ -14,8 +14,10 @@
                             <thead>
                                 <tr>
                                     <th width="50">ID</th>
+                                    <th>Tanggal</th>
                                     <th>Meja</th>
                                     <th>Atas Nama</th>
+                                    <th>Total</th>
                                     <th>Status</th>
                                     <th width="40" class="text-center">Actions</th>
                                 </tr>
@@ -24,11 +26,13 @@
                                 <?php foreach ($transaction as $index => $item) : ?>
                                     <tr>
                                         <td class="text-uppercase"><a href="<?= site_url('transactions/'.$item['id']) ?>">#<?= $item['id'] ?></a></td>
+                                        <td><?= $item['created_at'] ?></td>
                                         <td>
                                             <strong><?= $item['reservation_table_id'] ?></strong>
-                                            [<?= $modelTransaction->getReservationTable($item['reservation_table_id']) ? $modelTransaction->getReservationTable($item['reservation_table_id'])['name'] : '' ?>]
+                                            <span>[<?= $modelTransaction->getReservationTable($item['reservation_table_id']) ? $modelTransaction->getReservationTable($item['reservation_table_id'])['name'] : '' ?>]</span>
                                         </td>
                                         <td><strong><?= $item['customer_name'] ?></strong></td>
+                                        <td><?= rupiahFormat($item['price_total']) ?></td>
                                         <td>
                                             <?php if ($item['status'] == 'Selesai') : ?>
                                                 <span class="badge bg-success"><small><?= $item['status'] ?></small></span>
@@ -98,7 +102,7 @@ endif;
                 text: '<i class="bx bxs-printer me-1" ></i>Print',
                 className: "btn btn-outline-secondary mx-1 rounded-pill",
                 exportOptions: {
-                    columns: [0, 1, 2, 3],
+                    columns: [0, 1, 2, 3, 4, 5],
                 }
             },
             {
@@ -106,7 +110,7 @@ endif;
                 text: '<i class="bx bxs-file-pdf me-1" ></i>PDF',
                 className: "btn btn-outline-danger mx-1 rounded-pill",
                 exportOptions: {
-                    columns: [0, 1, 2, 3],
+                    columns: [0, 1, 2, 3, 4, 5],
                 }
             },
             {
@@ -114,7 +118,7 @@ endif;
                 text: '<i class="bx bx-table me-1" ></i>Excel',
                 className: "btn btn-outline-success mx-1 rounded-pill",
                 exportOptions: {
-                    columns: [0, 1, 2, 3],
+                    columns: [0, 1, 2, 3, 4, 5],
                 }
             },
             {
@@ -122,7 +126,7 @@ endif;
                 text: '<i class="bx bxs-spreadsheet me-1" ></i>CSV',
                 className: "btn btn-outline-success mx-1 rounded-pill",
                 exportOptions: {
-                    columns: [0, 1, 2, 3],
+                    columns: [0, 1, 2, 3, 4, 5],
                 }
             },
         ]
