@@ -32,7 +32,7 @@
                                             <span class="badge bg-label-primary"><small><?= $item['role'] ?></small></span>
                                         </td>
                                         <td class="d-flex align-items-center gap-2">
-                                            <img src="/img/avatars/<?= $item['photo'] ? $item['photo'] : 'default.jpg' ?>" alt="<?= $item['name'] ?>" class="d-block rounded object-fit-cover" height="50" width="50" rounded">
+                                            <img src="/img/avatars/<?= $item['photo'] ? $item['photo'] : 'default.jpg' ?>" alt="<?= $item['name'] ?>" class="d-block rounded object-fit-cover modal-basic-photo-show cursor-pointer" height="50" width="50" rounded">
                                             <?= $item['name'] ?>
                                         </td>
                                         <td><?= $item['email'] ?></td>
@@ -62,6 +62,7 @@
     </div>
 </div>
 <?php include 'partials/modal-form.php'; ?>
+<?php include 'partials/modal-photo.php'; ?>
 <?php
 if (session()->getFlashdata('success')) :
     echo showToast('bg-default', 'Informasi', session()->getFlashdata('success'));
@@ -78,6 +79,16 @@ $('.modal-basic-update-password').click(function(e) {
     $('#modal-basic-form-title').text('Paksa Ubah Password')
     $('#modal-basic-form').modal('show')
 })
+
+$('.modal-basic-photo-show').click(function(e) {
+    e.preventDefault()
+    const id = $(this).data('id'),
+        src = $(this).attr('src')
+    $('#modal-basic-photo-title').text('Lihat Photo')
+    $('#modal-basic-photo-img').attr('src', src)
+    $('#modal-basic-photo').modal('show')
+})
+
 $('.data-table').DataTable({
     ordering: false,
     lengthChange: false,

@@ -32,7 +32,7 @@
                                             <span class="badge bg-label-primary"><small><?= $model->getCategory($item['menu_category_id']); ?></small></span>
                                         </td>
                                         <td class="d-flex align-items-center gap-2">
-                                            <img src="/img/menus/<?= $item['photo'] ? $item['photo'] : 'default.jpg' ?>" alt="<?= $item['name'] ?>" class="d-block rounded object-fit-cover" height="50" width="50">
+                                            <img src="/img/menus/<?= $item['photo'] ? $item['photo'] : 'default.jpg' ?>" alt="<?= $item['name'] ?>" class="d-block rounded object-fit-cover modal-basic-photo-show cursor-pointer" height="50" width="50">
                                             <?= $item['name'] ?>
                                         </td>
                                         <td><?= rupiahFormat($item['price']) ?></td>
@@ -62,6 +62,7 @@
         </div>
     </div>
 </div>
+<?php include 'partials/modal-photo.php'; ?>
 <?php
 if (session()->getFlashdata('success')) :
     echo showToast('bg-default', 'Informasi', session()->getFlashdata('success'));
@@ -71,6 +72,15 @@ endif;
 
 <?= $this->section("scripts") ?>
 <script>
+$('.modal-basic-photo-show').click(function(e) {
+    e.preventDefault()
+    const id = $(this).data('id'),
+        src = $(this).attr('src')
+    $('#modal-basic-photo-title').text('Lihat Photo')
+    $('#modal-basic-photo-img').attr('src', src)
+    $('#modal-basic-photo').modal('show')
+})
+
 $('.data-table').DataTable({
     ordering: false,
     lengthChange: false,

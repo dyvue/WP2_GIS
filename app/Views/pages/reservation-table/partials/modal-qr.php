@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex justify-content-center">
-        <img id="modal-basic-qr-img" src="" class="d-block rounded object-fit-cover modal-basic-qr-show cursor-pointer">
+        <img id="modal-basic-qr-img" src="" class="d-block rounded object-fit-cover">
       </div>
       <div class="modal-footer">
         <a class="btn btn-secondary d-flex gap-1 justify-content-center align-items-center w-100 mb-3 text-white" target="_blank" onclick="window.print()">
