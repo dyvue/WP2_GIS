@@ -23,7 +23,6 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
         'authuserfilter' => \App\Filters\AuthUserFilter::class,
         'authusermanajerfilter' => \App\Filters\AuthUserManagerFilter::class,
-        'authusercashierfilter' => \App\Filters\AuthUserCashierFilter::class,
         'guestfilter' => \App\Filters\GuestFilter::class,
         'authcustomerfilter' => \App\Filters\AuthCustomerFilter::class,
         'guestcustomerfilter' => \App\Filters\GuestCustomerFilter::class,
